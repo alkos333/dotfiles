@@ -1,7 +1,17 @@
 #!/bin/bash
 
-rm -f ~/.editorconfig ~/.bashrc ~/.inputrc ~/.vimrc
+rm -f ~/.editorconfig \
+        ~/.bash_profile \
+        ~/.bashrc \
+        ~/.bashprompt \
+        ~/.inputrc \
+        ~/.vimrc \
+        ~/.screenrc 
+
 ln -s .dotfiles/editorconfig ~/.editorconfig
+ln -s .dotfiles/bash_profile ~/.bash_profile
 ln -s .dotfiles/bashrc ~/.bashrc
+ln -s .dotfiles/bashprompt ~/.bashprompt
 ln -s .dotfiles/inputrc ~/.inputrc
 ln -s .dotfiles/vimrc ~/.vimrc
+ln -s .dotfiles/screenrc ~/.screenrc
