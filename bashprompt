@@ -22,9 +22,13 @@ setup_prompt() {
     local YELLOW="\[\033[0;33m\]"
     local NO_COLOR="\[\033[0m\]"
 
+    # unstaged (*) and staged (+)
     GIT_PS1_SHOWDIRTYSTATE=true
+    # something is stashed ($)
     GIT_PS1_SHOWSTASHSTATE=true
+    # untracked (%)
     GIT_PS1_SHOWUNTRACKEDFILES=true
+    # behind (<), ahead (>), diverged (<>), same (=)
     GIT_PS1_SHOWUPSTREAM="auto verbose"
 
     PS1="$CYAN\u$LIGHT_GRAY@$GREEN\h$(__git_ps1 " $MAGENTA(%s)") $LIGHT_GRAY\w$YELLOW\$$NO_COLOR "
