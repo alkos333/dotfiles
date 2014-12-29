@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Extract first 7 characters of last commit's sha
 get_sha() {
     git rev-parse --short HEAD 2> /dev/null
 }
 
+# Find and source prompt enhancer shipped with git
 enable_git_prompt(){
     git_path=$(which git)
     prefix=${git_path/%bin\/git/}
@@ -14,6 +16,8 @@ enable_git_prompt(){
     fi
 }
 
+# Configure colors and other git properies for prompt
+# This is called every time before PS1 gets evaluated
 setup_prompt() {
     local CYAN="\[\033[0;36m\]"
     local LIGHT_GRAY="\[\033[0;37m\]"

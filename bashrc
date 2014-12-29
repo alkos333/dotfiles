@@ -3,6 +3,9 @@ export EDITOR=vim
 
 # Enable vi line editing mode
 set -o vi
+
+# Don't exit bash when encounter EOF characters
+# on an input line
 set -o ignoreeof
 
 # Customize prompt

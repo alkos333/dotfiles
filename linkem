@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Remove all previously created files
 rm -f ~/.editorconfig \
         ~/.bash_profile \
         ~/.bashrc \
@@ -8,6 +9,7 @@ rm -f ~/.editorconfig \
         ~/.vimrc \
         ~/.screenrc 
 
+# Create symbolic links for all files of interest
 ln -s .dotfiles/editorconfig ~/.editorconfig
 ln -s .dotfiles/bash_profile ~/.bash_profile
 ln -s .dotfiles/bashrc ~/.bashrc
