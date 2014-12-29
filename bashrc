@@ -9,3 +9,6 @@ set -o ignoreeof
 if [ -f ~/.bashprompt ]; then
     source ~/.bashprompt
 fi
+
+# append rather than overwrite history file
+shopt -s histappend
