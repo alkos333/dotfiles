@@ -7,6 +7,7 @@ set relativenumber
 set autoread
 
 filetype plugin on
+filetype indent on
 syntax on
 
 " Vim package manager
