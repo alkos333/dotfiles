@@ -7,8 +7,8 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 indent_style = space
-indent_size = 4 
+indent_size = 2 
 
 # Json config files
-[*.json]
+[*.{json,py}]
 indent_size = 2

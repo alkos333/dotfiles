@@ -1,0 +1,18 @@
+[user]
+	name = alkos333
+	email = me@alkos333.net
+[http]
+	sslVerify = false
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
+[format]
+	pretty = short
+[core]
+	editor = vim
+	pager = less -r
+[merge]
+	tool = vimdiff
