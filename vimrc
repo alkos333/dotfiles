@@ -1,5 +1,5 @@
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
+"set backupdir=~/.vim/backup//
+"set directory=~/.vim/swap//
 set ruler 
 " relative line numbers based on current line
 set relativenumber
