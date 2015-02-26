@@ -14,3 +14,15 @@ syntax on
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
 call pathogen#infect()
 call pathogen#helptags()
+
+" TODO incorporate into babushka dep set-up
+" vim-flake8 (https://github.com/nvie/vim-flake8)
+" run on every file save
+autocmd BufWritePost *.py call Flake8()
+" ebnable markers
+let g:flake8_show_in_file=1
+
+" TODO incorporate into babushka dep set-up?
+" vim-pyunit
+" run on every file save
+autocmd BufWritePost *.py call PyUnitRunTests()

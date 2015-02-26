@@ -32,7 +32,7 @@ setup_prompt() {
     GIT_PS1_SHOWUPSTREAM="auto verbose"
 
     if type -t __git_ps1 | grep -q "function"; then
-        GIT_PROMPT="$(__git_ps1 " $MAGENTA(%s)")"
+        GIT_PROMPT="$(__git_ps1 "$MAGENTA(%s)")"
     fi
 
     PS1="$CYAN\u$LIGHT_GRAY@$GREEN\h$GIT_PROMPT $LIGHT_GRAY\w$YELLOW\$$NO_COLOR "
