@@ -15,3 +15,9 @@ fi
 
 # append rather than overwrite history file
 shopt -s histappend
+
+# source additional files
+for file_to_source in $(ls ~/.dotfiles/bash/source_em/*);
+do
+  source $file_to_source
+done

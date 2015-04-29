@@ -8,13 +8,13 @@ rm -f ~/.editorconfig \
         ~/.inputrc \
         ~/.vimrc \
         ~/.screenrc \
-        ~/.gitconfig
+        ~/.gitconfig \
 
 # Create symbolic links for all files of interest
 ln -s .dotfiles/editorconfig ~/.editorconfig
-ln -s .dotfiles/bash_profile ~/.bash_profile
-ln -s .dotfiles/bashrc ~/.bashrc
-ln -s .dotfiles/bashprompt ~/.bashprompt
+ln -s .dotfiles/bash/bash_profile ~/.bash_profile
+ln -s .dotfiles/bash/bashrc ~/.bashrc
+ln -s .dotfiles/bash/bashprompt ~/.bashprompt
 ln -s .dotfiles/inputrc ~/.inputrc
 ln -s .dotfiles/vimrc ~/.vimrc
 ln -s .dotfiles/screenrc ~/.screenrc
