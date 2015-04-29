@@ -1,9 +1,9 @@
-" Vim package manager
+" Pathogen (vim package manager)
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
 call pathogen#infect()
 call pathogen#helptags()
 
-" Vundle
+" Vundle (basedon Pathogen, with more features)
 " https://github.com/gmarik/Vundle.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'Raimondi/delimitMate.git'
 call vundle#end()
 
 set ruler 
@@ -35,3 +36,6 @@ let g:flake8_show_in_file=1
 " vim-pyunit
 " run on every file save
 autocmd BufWritePost *.py call PyUnitRunTests()
+
+" Automatically close quotes, brackets, etc
+let delimitMate_expand_cr = 1
