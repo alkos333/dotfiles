@@ -1,5 +1,19 @@
-"set backupdir=~/.vim/backup//
-"set directory=~/.vim/swap//
+" Vim package manager
+" http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
+call pathogen#infect()
+call pathogen#helptags()
+
+" Vundle
+" https://github.com/gmarik/Vundle.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+call vundle#end()
+
 set ruler 
 " relative line numbers based on current line
 set relativenumber
@@ -9,11 +23,6 @@ set autoread
 filetype plugin on
 filetype indent on
 syntax on
-
-" Vim package manager
-" http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
-call pathogen#infect()
-call pathogen#helptags()
 
 " TODO incorporate into babushka dep set-up
 " vim-flake8 (https://github.com/nvie/vim-flake8)
