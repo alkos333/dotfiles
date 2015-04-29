@@ -39,3 +39,7 @@ autocmd BufWritePost *.py call PyUnitRunTests()
 
 " Automatically close quotes, brackets, etc
 let delimitMate_expand_cr = 1
+
+" Start NERDTree automatically upon start-up
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
