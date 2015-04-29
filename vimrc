@@ -43,3 +43,4 @@ let delimitMate_expand_cr = 1
 " Start NERDTree automatically upon start-up
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
