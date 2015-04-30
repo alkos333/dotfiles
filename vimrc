@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elzr/vim-json'
+Plugin 'pyunit.vim'
 call vundle#end()
 
 set ruler 
