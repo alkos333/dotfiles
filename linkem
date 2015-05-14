@@ -9,6 +9,7 @@ rm -f ~/.editorconfig \
         ~/.vimrc \
         ~/.screenrc \
         ~/.gitconfig \
+        ~/.tmux.conf \
 
 # Create symbolic links for all files of interest
 ln -s .dotfiles/editorconfig ~/.editorconfig
@@ -19,3 +20,4 @@ ln -s .dotfiles/inputrc ~/.inputrc
 ln -s .dotfiles/vimrc ~/.vimrc
 ln -s .dotfiles/screenrc ~/.screenrc
 ln -s .dotfiles/gitconfig ~/.gitconfig
+ln -s .dotfiles/tmux.conf ~/.tmux.conf

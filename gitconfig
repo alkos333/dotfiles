@@ -16,3 +16,5 @@
 	pager = less -r
 [merge]
 	tool = vimdiff
+[diff]
+	submodule = log
