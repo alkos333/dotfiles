@@ -68,3 +68,7 @@ autocmd BufEnter * call rc:syncTree()
 set wildignore+=*/target/**
 " don't cache
 let g:ctrlp_use_caching=0
+
+" pyunit settings
+let PyUnitTestsRoot = "test"
+let PyUnitTestsStructure = "nose"
