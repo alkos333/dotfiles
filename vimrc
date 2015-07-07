@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elzr/vim-json'
-Plugin 'pyunit.vim'
+Plugin 'dragon12/vim-pyunit.git'
 call vundle#end()
 
 set ruler 
@@ -32,7 +32,7 @@ syntax on
 " vim-flake8 (https://github.com/nvie/vim-flake8)
 " run on every file save
 autocmd BufWritePost *.py call Flake8()
-" ebnable markers
+" enable markers
 let g:flake8_show_in_file=1
 
 " TODO incorporate into babushka dep set-up?
@@ -70,5 +70,7 @@ set wildignore+=*/target/**
 let g:ctrlp_use_caching=0
 
 " pyunit settings
+let PyUnitShowTests = 0
 let PyUnitTestsRoot = "test"
 let PyUnitTestsStructure = "nose"
+let PyUnitOpenTestFileOnFailure = 0
