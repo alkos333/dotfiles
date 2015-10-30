@@ -17,6 +17,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'dragon12/vim-pyunit.git'
 Plugin 'unimpaired.vim'
+Plugin 'derekwyatt/vim-scala'
 call vundle#end()
 
 set ruler 
@@ -44,25 +45,8 @@ autocmd BufWritePost *.py call PyUnitRunTests()
 " Automatically close quotes, brackets, etc
 let delimitMate_expand_cr = 1
 
-" NERDTree
-" Start NERDTree automatically upon start-up
-autocmd vimenter * NERDTree
+" NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" Check if NERDTree is open or active
-function! rc:isNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-" Call NERDTreeFind if NERDTree is active, current window contains a
-" modifiable file, and we're not in vimdiff
-function! rc:syncTree()
-  if &modifiable && rc:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call rc:syncTree()
 
 " CtrlP 
 " directories to ignore
