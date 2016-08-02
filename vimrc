@@ -18,6 +18,7 @@ Plugin 'elzr/vim-json'
 Plugin 'dragon12/vim-pyunit.git'
 Plugin 'unimpaired.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'aquach/vim-http-client'
 call vundle#end()
 
 set ruler 
@@ -43,7 +44,7 @@ let g:flake8_show_in_file=1
 autocmd BufWritePost *.py call PyUnitRunTests()
 
 " Automatically close quotes, brackets, etc
-let delimitMate_expand_cr = 1
+let delimitMate_expand_cr = 0
 
 " NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
@@ -59,3 +60,6 @@ let PyUnitShowTests = 0
 let PyUnitTestsRoot = "test"
 let PyUnitTestsStructure = "nose"
 let PyUnitOpenTestFileOnFailure = 0
+
+" vim-http-client: use json filetype for better syntax highlighting
+let g:http_client_json_ft="json"
