@@ -21,3 +21,7 @@ for file_to_source in $(ls ~/.dotfiles/bash/source_em/*);
 do
   source $file_to_source
 done
+
+# set history size
+HISTSIZE=15000
+HISTFILESIZE=1000000
