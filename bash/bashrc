@@ -25,3 +25,4 @@ done
 # set history size
 HISTSIZE=15000
 HISTFILESIZE=1000000
+HISTCONTROL=ignoreboth
