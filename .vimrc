@@ -1,9 +1,9 @@
 " Pathogen (vim package manager)
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/
-call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#helptags()
 
-" Vundle (basedon Pathogen, with more features)
+" Vundle (based on Pathogen, with more features)
 " https://github.com/gmarik/Vundle.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required

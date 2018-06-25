@@ -1,5 +1,0 @@
-#!/bin/bash
-
-alias findd="find . -type d"
-# https://github.com/nvbn/thefuck
-alias fuck='eval $(thefuck $(fc -ln -1))'
