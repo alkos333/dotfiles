@@ -4,6 +4,7 @@ function dotfiles {
 }
 
 mkdir -p .dotfiles-backup
+dotfiles checkout
 
 if [ $? = 0 ]; then
   echo "Checked out config.";
