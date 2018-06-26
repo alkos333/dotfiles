@@ -14,4 +14,4 @@ if [ $? = 0 ]; then
 fi;
 
 dotfiles checkout
-dotfiles config --local status.showUntrackedFiles no
+dotfiles config status.showUntrackedFiles no
