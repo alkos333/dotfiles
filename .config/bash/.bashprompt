@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Configure colors
 CYAN="\[\033[0;36m\]"

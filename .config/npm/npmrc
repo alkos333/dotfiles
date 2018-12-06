@@ -1,0 +1,4 @@
+prefix=/Users/alysenk/.local
+cache=/Users/alysenk/.cache/npm
+tmp=/Users/alysenk/.run/npm
+bin={ "postgraphile": "./node_modules/postgraphile/index.js" }

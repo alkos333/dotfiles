@@ -1,0 +1,28 @@
+[user]
+	name = Alex Lysenka
+	email = alex@alkos333.me
+[http]
+	sslVerify = true
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = true
+[format]
+	pretty = short
+[core]
+	editor = vim
+	pager = less -r
+	excludesFile = /Users/alysenk/.config/git/ignore
+[merge]
+	tool = vimdiff
+[diff]
+	submodule = log
+[alias]
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ; }; gi"
+	bundle = !brew bundle --global $@
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[http "https://gopkg.in"]
+	followRedirects = true
