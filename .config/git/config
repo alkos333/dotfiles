@@ -36,3 +36,5 @@
 	url = https://github.com/alkos333/dotfiles
 [status]
 	showUntrackedFiles = no
+[init]
+	templateDir = ~/.local/share/git/templates
