@@ -14,7 +14,13 @@
 [core]
 	editor = vim
 	pager = less -r
-	excludesFile = /Users/alysenk/.config/git/ignore
+	excludesFile = ~/.config/git/ignore
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = false
+	precomposeunicode = true
+
 [merge]
 	tool = vimdiff
 [diff]
@@ -26,3 +32,7 @@
 	last = log -1 HEAD
 [http "https://gopkg.in"]
 	followRedirects = true
+[remote "github"]
+	url = https://github.com/alkos333/dotfiles
+[status]
+	showUntrackedFiles = no
