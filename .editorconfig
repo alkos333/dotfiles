@@ -1,17 +1,10 @@
-# top-most EditorConfig file
 root = true
 
 [*]
+charset = utf-8
 end_of_line = lf
 insert_final_newline = false
 trim_trailing_whitespace = true
-
-[*.{js,py}]
-charset = utf-8
-
-# Defaults
-[{*.yaml, *.gradle, *.kts, Makefile, config}]
-end_of_line = lf
-charset = utf-8
-indent_style = space
+indent_style = space,
+max_line_length = 72
 indent_size = 2 

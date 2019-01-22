@@ -29,7 +29,7 @@ set_python_virtualenv() {
     PYTHON_VENV="${YELLOW}(`basename \"$VIRTUAL_ENV\"`)${NO_COLOR}"
   fi
 }
-#
+
 # Configure properies for prompt
 # This is called every time before PS1 gets evaluated
 setup_prompt() {

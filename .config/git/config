@@ -14,7 +14,6 @@
 [core]
 	editor = vim
 	pager = less -r
-	excludesFile = ~/.config/git/ignore
 	repositoryformatversion = 0
 	filemode = true
 	bare = true
@@ -26,10 +25,11 @@
 [diff]
 	submodule = log
 [alias]
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ; }; gi"
-	bundle = !brew bundle --global $@
+	ignore = "!f() { curl -L -s https://www.gitignore.io/api/$@ ; }; f"
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	config = config --file $XDG_CONFIG_HOME/git/config
+	ls = ls-tree -r HEAD -t --long --abbrev=7
 [http "https://gopkg.in"]
 	followRedirects = true
 [remote "github"]
