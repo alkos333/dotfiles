@@ -30,11 +30,10 @@
 	last = log -1 HEAD
 	config = config --file $XDG_CONFIG_HOME/git/config
 	ls = ls-tree -r HEAD -t --long --abbrev=7
+  s = status --short
 [http "https://gopkg.in"]
 	followRedirects = true
-[remote "github"]
-	url = https://github.com/alkos333/dotfiles
-[status]
-	showUntrackedFiles = no
 [init]
-	templateDir = ~/.local/share/git/templates
+	templateDir = $XDG_CONFIG_HOME/git/templates
+[push]
+	default = simple

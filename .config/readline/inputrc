@@ -1,8 +1,11 @@
 set editing-mode vi
 set bell-style none
+set colored-completion-prefix on
+set colored-stats on
 
 $if mode=vi
     set keymap vi-command
     "gg": beginning-of-history
     "G": end-of-history
 $endif
+

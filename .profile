@@ -1,54 +1,40 @@
 #!/usr/bin/env sh
 
-# XDG
+export PREFIX="$HOME/.local"
+
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_HOME="$PREFIX/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_RUNTIME_HOME="$HOME/.run"
 
-
+export HISTFILE="$XDG_DATA_HOME/sh/history"
 export EDITOR="vim"
-export PREFIX="$HOME/.local"
-export PATH="$PREFIX/bin:$PATH"
+export PATH="$PREFIX/linuxbrew/bin:$PREFIX/bin:$PATH"
 export MANPATH="$XDG_DATA_HOME/man:$MANPATH"
 export INFOPATH="$XDG_DATA_HOME/info:$INFOPATH"
+export LANG=en_US.UTF-8
+export TMPDIR="$PREFIX/tmp"
 
-alias dot="git -C $HOME --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+export DOTFILES_REPOSITORY="$XDG_DATA_HOME/dotfiles"
+alias dotfiles="git -C $HOME --git-dir=$DOTFILES_REPOSITORY --work-tree=$HOME"
 
-# Homebrew/Linuxbrew
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=/Library/Fonts"
-export HOMEBREW_PREFIX="$PREFIX/linuxbrew"
-export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
-export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
-export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
-export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
-
-alias bundle="brew bundle \
-	--file=$XDG_CONFIG_HOME/brew/Brewfile \
-	--force \
-	--describe"
-
+# vim
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
+
+# readline
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
 
-# Tmux
+# tmux
 export TMUX_TMPDIR="$XDG_RUNTIME_HOME/tmux"
-export TMUX_PLUGIN_MANAGER_PATH="$XDG_CACHE_HOME/tmux/plugins"
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins/"
+alias tmux="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
-# Python
-export PYTHONPATH="$(python -m site --user-base)/bin"
-export PATH="$PATH:$PYTHONPATH"
-
-# Nodejs
+# npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
-# Gradle
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-
-# sdkman
-export SDKMAN_DIR="$PREFIX/sdkman"
-source "$HOME/.local/sdkman/bin/sdkman-init.sh"
-
-eval `dircolors $HOME/.dir_colors`
+# Enable color highlighting for file listings
+alias ls="ls -G"
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+# Reload the shell (invoke as a interactive shell)
+alias reload="exec ${SHELL} -i"

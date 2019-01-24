@@ -1,5 +1,0 @@
-autodetach on
-startup_message off
-hardstatus alwayslastline
-hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kM}(%{W}%n*%f %t%?(%u)%?%{=b kM})%{= w}%?%+Lw%?%? %{g}][%{= w}%m/%d %0C:%s%a%{g}]%{W}'
-hardcopy_append on

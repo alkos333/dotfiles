@@ -72,3 +72,8 @@ tags
 
 **/.config/NuGet/
 **/.config/configstore/
+.local/
+.cache/
+.run/
+**/.config/hub
+vendor/
