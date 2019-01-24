@@ -13,19 +13,21 @@ export PATH="$PREFIX/bin:$PATH"
 export MANPATH="$XDG_DATA_HOME/man:$MANPATH"
 export INFOPATH="$XDG_DATA_HOME/info:$INFOPATH"
 
-alias dot="git -C $HOME --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+export DOTFILES_HOME="$XDG_DATA_HOME/dotfiles/"
+alias dot="git -C $HOME --git-dir=$DOTFILES_HOME --work-tree=$HOME"
 
 # Homebrew/Linuxbrew
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=/Library/Fonts"
 export HOMEBREW_PREFIX="$PREFIX/linuxbrew"
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
 export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
+export HOMEBREW_BUNDLE_HOME="$XDG_DATA_HOME/homebrew/bundle"
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
 export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
 
 alias bundle="brew bundle \
-	--file=$XDG_CONFIG_HOME/brew/Brewfile \
+	--file=$HOMEBREW_BUNDLE_HOME/Brewfile \
 	--force \
 	--describe"
 
@@ -51,4 +53,5 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export SDKMAN_DIR="$PREFIX/sdkman"
 source "$HOME/.local/sdkman/bin/sdkman-init.sh"
 
-eval `dircolors $HOME/.dir_colors`
+# alias git if GitHub's hub command is present
+which -s hub && eval "$(hub alias -s)"

@@ -72,3 +72,5 @@ tags
 
 **/.config/NuGet/
 **/.config/configstore/
+.local/share/dotfiles/
+**/.config/hub

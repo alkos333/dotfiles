@@ -8,7 +8,6 @@ call vundle#begin('$XDG_CACHE_HOME/vim/bundle')
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elzr/vim-json'
@@ -24,6 +23,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'jparise/vim-graphql'
 Plugin 'udalov/kotlin-vim'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 call vundle#end()
 
 set ruler
@@ -35,14 +35,8 @@ set autoread
 filetype plugin on
 filetype indent on
 
-" use Solarized Dark theme
+" Enable syntax highlighting
 syntax on
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans = 0
-let g:solarized_contrast = "high"
-
 
 " automatically close quotes, brackets, etc
 let delimitMate_expand_cr = 0
@@ -89,7 +83,7 @@ set noerrorbells
 set nostartofline
 
 " set status bar theme
-let g:lightline = { 'colorscheme': 'powerline' }
+let g:lightline = { 'colorscheme': 'landscape' }
 
 " dont' show mode - it's already available in status bar
 set noshowmode
