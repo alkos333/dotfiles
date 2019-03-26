@@ -2,10 +2,10 @@ set nocompatible
 filetype off
 
 " Set the runtime path to include Vundle and initialize
-set rtp+=$XDG_CACHE_HOME/vim/bundle/Vundle.vim
-call vundle#begin('$XDG_CACHE_HOME/vim/bundle')
+set rtp+=$XDG_DATA_HOME/vim/bundle/Vundle.vim
+call vundle#begin('$XDG_DATA_HOME/vim/bundle')
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -30,23 +30,21 @@ Plugin 'tfnico/vim-gradle',
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Quramy/vison'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'bfontaine/Brewfile.vim'
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wannesm/wmgraphviz.vim'
 call vundle#end()
 
 set ruler
 " relative line numbers based on current line
 set relativenumber
-" autolatically refresh file if changed on disk
-set autoread
 
 filetype plugin on
 filetype indent on
 
 " Enable syntax highlighting
-syntax on
+syntax on 
 
 " automatically close quotes, brackets, etc
 let delimitMate_expand_cr = 0
@@ -98,13 +96,13 @@ let g:lightline = { 'colorscheme': 'landscape' }
 " dont' show mode - it's already available in status bar
 set noshowmode
 
-" Reload files that have not been modified
+" autolatically refresh file if changed on disk
 set autoread                        
 
-" Automatically :write before running commands
+" automatically :write before running commands
 set autowrite                      
 
-" open NERDTree automatically abset path argument
+" open NERDTree automatically absent path argument
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -113,20 +111,27 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " use Ctrl-n to toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" use no-break space character as delimiter when vim 
+" is compiled without conceal flag
+" https://github.com/scrooloose/nerdtree/issues/928#issuecomment-445755327
+let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeHighlightCursorline = 0
 
 " configure yaml experience
 autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal foldlevel=1
+autocmd FileType yaml setlocal foldlevel=2
 
 " reload vimrc automatically
-augroup Vim
+augroup vim
   autocmd!
-  au bufwritepost vimrc source %
+  au BufWritePost vimrc source %
 augroup END
 
 " treat prisma data model files as graphql types
 autocmd BufRead,BufNewFile *.prisma set filetype=graphql
 
-" Set UTF-8 encoding 
+" set UTF-8 encoding 
 set encoding=UTF-8
-set guifont=SourceCodePro_Nerd_Font_Mono:h11
+
+" write current buffer before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 1
