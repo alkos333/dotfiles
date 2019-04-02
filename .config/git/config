@@ -1,6 +1,3 @@
-[user]
-	name = Alex Lysenka
-	email = alex@alkos333.me
 [http]
 	sslVerify = true
 [color]
@@ -19,7 +16,6 @@
 	bare = true
 	ignorecase = false
 	precomposeunicode = true
-
 [merge]
 	tool = vimdiff
 [diff]
