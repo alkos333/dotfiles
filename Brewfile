@@ -2,6 +2,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 brew "make", args: ["force-bottle"]
 brew "curl", args: ["force-bottle"]
+brew "stow",
 brew "git", args: ["force-bottle"]
 brew "ghi"
 brew "gist"
