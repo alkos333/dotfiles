@@ -4,7 +4,6 @@ brew "make", args: ["force-bottle"]
 brew "curl", args: ["force-bottle"]
 brew "git", args: ["force-bottle"]
 brew "ghi"
-brew "gist"
 brew "tig"
 brew "htop"
 brew "tmux"
