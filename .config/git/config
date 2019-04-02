@@ -33,7 +33,5 @@
   s = status --short
 [http "https://gopkg.in"]
 	followRedirects = true
-[init]
-	templateDir = $XDG_CONFIG_HOME/git/templates
 [push]
 	default = simple
