@@ -1,0 +1,9 @@
+[submodule ".local/linuxbrew/Homebrew"]
+	path = .local/linuxbrew/Homebrew
+	url = https://github.com/Homebrew/brew
+[submodule ".local/share/tmux/plugins/tpm"]
+	path = .local/share/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".local/share/vim/bundle/Vundle.vim"]
+	path = .local/share/vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git

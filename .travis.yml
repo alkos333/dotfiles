@@ -1,0 +1,10 @@
+os:
+  - linux
+  - osx
+  - windows
+language: minimal
+services:
+  - docker
+scripts:
+  - docker --version
+  - make
