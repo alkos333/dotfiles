@@ -7,4 +7,3 @@ services:
   - docker
 scripts:
   - docker --version
-  - make
