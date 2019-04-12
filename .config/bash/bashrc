@@ -1,6 +1,10 @@
 # homebrew
-eval $(brew shellenv)
-eval $(${HOMEBREW_PREFIX_DEFAULT}/bin/brew shellenv)
+
+test -x ${PREFIX}/linuxbrew/bin/brew \
+  && eval $(${PREFIX}/linuxbrew/bin/brew shellenv)
+
+export PATH=$(brew --prefix curl)/bin:"${PATH}"
+
 export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_FORCE_BREWED_GIT=1
 export HOMEBREW_CACHE=${XDG_CACHE_HOME}/Homebrew
@@ -9,15 +13,4 @@ export HOMEBREW_TEMP=${TMPDIR}
 export HOMEBREW_VERBOSE=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 export HOMEBREW_NO_EMOJI=1
-PATH=$(brew --prefix curl)/bin:${PATH}
-
-# git
-GIT_PROMPT_ONLY_IN_REPO=1
-BASH_GIT_PROMPT="${HOMEBREW_PREFIX}/opt/bash-git-prompt/share/gitprompt.sh"
-if [ -f "$BASH_GIT_PROMPT" ]; then
-  __GIT_PROMPT_DIR=$(dirname $BASH_GIT_PROMPT)
-  . "$BASH_GIT_PROMPT"
-fi
-
-#export BASH_COMPLETION_COMPAT_DIR="${HOMEBREW_PREFIX}/etc/bash_completion.d"
-[[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] && . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+export HOMEBREW_NO_ANALYTICS=1
