@@ -1,4 +1,35 @@
-.dotfiles
+# Gauge - metadata dir
+.gauge
+
+# Gauge - log files dir
+logs
+
+# Gauge - reports dir
+reports
+
+# Gauge - JavaScript node dependencies
+node_modules
+# Gauge - metadata dir
+.gauge
+
+# Gauge - log files dir
+logs
+
+# Gauge - reports dir
+reports
+
+# Gauge - JavaScript node dependencies
+node_modules
+# Gauge - metadata dir
+.gauge
+
+#
+
+
+# Gauge
+reports
+logs
+node_modules
 
 # History files
 .ash_history
@@ -77,3 +108,6 @@ tags
 .run/
 **/.config/hub
 vendor/
+
+
+
