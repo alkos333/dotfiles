@@ -1,6 +1,5 @@
 brew "curl"
 brew "git"
-brew "git-lfs"
 brew "make"
 brew "tmux"
 brew "coreutils"
@@ -14,4 +13,4 @@ brew "fd"
 brew "tree"
 brew "asciinema"
 brew "npm"
-
+brew "ruby"

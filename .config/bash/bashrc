@@ -5,6 +5,7 @@ test -x ${PREFIX}/linuxbrew/bin/brew \
 
 export PATH=$(brew --prefix curl)/bin:"${PATH}"
 
+export HOMEBREW_FORCE_VENDOR_RUBY=1
 export HOMEBREW_FORCE_BREWED_CURL=1
 export HOMEBREW_FORCE_BREWED_GIT=1
 export HOMEBREW_CACHE=${XDG_CACHE_HOME}/Homebrew
@@ -14,3 +15,13 @@ export HOMEBREW_VERBOSE=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# export SDKMAN_DIR=${PREFIX}/sdkman
+# . ~/.local/sdkman/bin/sdkman-init.sh
+
+export BASH_COMPLETION_COMPAT_DIR=${HOMEBREW_PREFIX}/etc/bash_completion.d
+test -r ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh \
+  && . ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh
+
+alias vim="nvim"

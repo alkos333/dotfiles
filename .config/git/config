@@ -1,31 +1,37 @@
 [http]
-	sslVerify = true
+  sslVerify = true
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = true
 [format]
-	pretty = short
+  pretty = short
 [core]
-	editor = vim
-	pager = less -r
-	repositoryformatversion = 0
-	filemode = true
-	bare = true
-	ignorecase = false
-	precomposeunicode = true
+  editor = vim
+  pager = less -r
+  repositoryformatversion = 0
+  filemode = true
+  ignorecase = false
+  precomposeunicode = true
+  sparseCheckout = true
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [diff]
-	submodule = log
+  submodule = log
 [alias]
-	ignore = "!f() { curl -L -s https://www.gitignore.io/api/$@ ; }; f"
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	config = config --file $XDG_CONFIG_HOME/git/config
-	ls = ls-tree -r HEAD -t --long --abbrev=7
+  ignore = "!f() { curl -L -s https://www.gitignore.io/api/$@ ; }; f"
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  config = config --file $XDG_CONFIG_HOME/git/config
+  ls = ls-tree -r HEAD -t --long --abbrev=7 
   s = status --short
+[http "https://gopkg.in"]
+  followRedirects = true
 [push]
-	default = simple
+  default = simple
+[checkout]
+  defaultRemote = origin
+[includeIf "gitdir:dotfiles/"]
+  path = dotfiles.conf

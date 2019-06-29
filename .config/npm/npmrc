@@ -1,2 +1,3 @@
-prefix=${PREFIX}
+prefix = ${HOME}/.local
 cache=${XDG_CACHE_HOME}/npm
+tmp=${XDG_RUNTIME_HOME}/npm

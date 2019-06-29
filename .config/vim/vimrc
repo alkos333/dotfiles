@@ -1,38 +1,39 @@
-set nocompatible
-filetype off
+" Set the runtime path for viutom data files
+set runtimepath+=$XDG_DATA_HOME/vim
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=$XDG_DATA_HOME/vim/bundle/Vundle.vim
-call vundle#begin('$XDG_DATA_HOME/vim/bundle')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Raimondi/delimitMate.git'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'elzr/vim-json'
-Plugin 'unimpaired.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'diepm/vim-rest-console'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'jparise/vim-graphql'
-Plugin 'udalov/kotlin-vim'
-Plugin 'mrk21/yaml-vim'
-Plugin 'posva/vim-vue'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'scrooloose/nerdtree',
-Plugin 'tfnico/vim-gradle',
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'Quramy/vison'
-Plugin 'bfontaine/Brewfile.vim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'wannesm/wmgraphviz.vim'
-call vundle#end()
+call plug#begin("$XDG_DATA_HOME/vim/bundle")
+Plug 'editorconfig/editorconfig-vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'tmux-plugins/vim-tmux' 
+Plug 'godlygeek/tabular'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'jparise/vim-graphql'
+Plug 'udalov/kotlin-vim'
+Plug 'mrk21/yaml-vim'
+Plug 'posva/vim-vue'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'vim-scripts/groovyindent-unix'
+Plug 'tfnico/vim-gradle'
+Plug 'bfontaine/Brewfile.vim'
+Plug 'wannesm/wmgraphviz.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'digitaltoad/vim-pug'
+
+call plug#end()
+
+" re-assign leader key
+let mapleader = ","
+
+" set UTF-8 encoding 
+set encoding=utf-8
 
 set ruler
 " relative line numbers based on current line
@@ -41,31 +42,25 @@ set relativenumber
 filetype plugin on
 filetype indent on
 
-" Enable syntax highlighting
+" Enable syntax highlighting (look good against dark background)
 syntax on 
+set background=dark
+
 
 " automatically close quotes, brackets, etc
 let delimitMate_expand_cr = 0
 
-" CtrlP
-" directories to ignore
-set wildignore+=*/target/**
-" don't cache
-let g:ctrlp_use_caching=0
+" fzf 
+nnoremap <Leader>, : <C-u>FZF<CR>
+let g:fzf_buffers_jump = 1
 
-" vim-http-client: use json filetype for better syntax highlighting
-let g:http_client_json_ft="json"
-
-" stop creating swp and ~ files
+" stop creating swap and ~ files
 set nobackup
 set noswapfile
 
 " ignore case of `/` searches unless an upper case letter is used
 set ignorecase
 set smartcase
-
-" remove ugly vertibal bars in split bar
-set fillchars+=vert:\ 
 
 " enable line numbers
 set number
@@ -88,9 +83,6 @@ set noerrorbells
 " don't reset cursor to start of line when moving around
 set nostartofline
 
-" set status bar theme
-let g:lightline = { 'colorscheme': 'landscape' }
-
 " dont' show mode - it's already available in status bar
 set noshowmode
 
@@ -100,36 +92,59 @@ set autoread
 " automatically :write before running commands
 set autowrite                      
 
-" open NERDTree automatically absent path argument
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" NERDTree
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" use Ctrl-n to toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" use no-break space character as delimiter when vim 
-" is compiled without conceal flag
-" https://github.com/scrooloose/nerdtree/issues/928#issuecomment-445755327
-let g:NERDTreeNodeDelimiter = "\u00a0"
-let g:NERDTreeHighlightCursorline = 0
-
 " configure yaml experience
 autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal foldlevel=2
 
 " reload vimrc automatically
-augroup vim
+augroup vimrc
   autocmd!
   au BufWritePost vimrc source %
 augroup END
 
-" treat prisma data model files as graphql types
-autocmd BufRead,BufNewFile *.prisma set filetype=graphql
+" TODO fix split border styling, extract styling
+highlight VertSplit cterm=none ctermfg=White
 
-" set UTF-8 encoding 
-set encoding=UTF-8
+" don't automatically wrap non comment text based on textwidth 
+" typing introduced by editorconfig-vim plugin
+set formatoptions-=t
 
-" write current buffer before navigating from Vim to tmux pane
-let g:tmux_navigator_save_on_switch = 1
+" use more natural split behavior by switching to the newly open
+" pane instead of remaining in original
+set splitright
+set splitbelow
+
+" ALE settings
+let g:ale_completion_max_suggestions = 10
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_column_always = 1
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_linters = {
+  \   'javascript': ['eslint', 'tsserver'],
+  \    }
+let g:ale_fixers = { 
+  \ "javascript": [ "eslint" ], 
+  \ "xml": ["xmllint"]
+  \}
+
+" show 5 lines of errors (default: 10)
+let g:ale_list_window_size = 5
+
+" set airline to reflect ALE errors/warnings 
+let g:airline#extensions#ale#enabled = 1
+
+" auto-completion behavior
+set completeopt=menu,menuone,preview,longest,noinsert
+
+" automatically update gitgutter signs upon file save
+autocmd BufWritePost * GitGutter
+
+" change invocation trigger key binding for rest console
+let g:vrc_trigger = '<Leader>r'
