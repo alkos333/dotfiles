@@ -1,5 +1,8 @@
 # Gauge
 reports
+**/.gauge
+
+# nodejs
 logs
 node_modules
 
@@ -84,3 +87,5 @@ vendor/
 .vagrant/
 
 .env
+
+**/asciinema/install-id

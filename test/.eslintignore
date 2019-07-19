@@ -1,0 +1,3 @@
+.git/
+src/**/build/
+node_modules/

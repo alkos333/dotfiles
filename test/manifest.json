@@ -1,0 +1,9 @@
+{
+  "Language": "js",
+  "Plugins": [
+    "html-report",
+    "json-report",
+    "screenshot",
+    "spectacle"
+  ]
+}

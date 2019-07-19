@@ -17,7 +17,7 @@
 
 ### Vim
 
-* set up projectionist set-up to later be utilized as a template
+* set up projectionist to be utilized as a base template
 * set up additional key bindings for ALE commands
 
 #### JavaScript
