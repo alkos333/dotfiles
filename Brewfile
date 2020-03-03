@@ -14,5 +14,8 @@ brew "tree"
 brew "asciinema"
 brew "npm"
 brew "ruby"
+brew "gh"
+
+cask "docker"
 cask "teamviewer"
 cask "dropbox"
