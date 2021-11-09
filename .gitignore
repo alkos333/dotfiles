@@ -89,3 +89,6 @@ vendor/
 .env
 
 **/asciinema/install-id
+
+# Brew
+Brewfile.lock.json
