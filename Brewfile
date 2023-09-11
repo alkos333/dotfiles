@@ -14,6 +14,7 @@ cask "microsoft-teams"
 cask "intellij-idea-ce"
 cask "rider"
 cask "postman"
+cask "lens"
 
 brew "curl"
 brew "wget"
